@@ -8,6 +8,7 @@ const typeDefs = gql`
 
   # This "Book" type defines the queryable fields for every book in our data source.
   type Book {
+    id: ID!
     title: String
     author: String
   }
@@ -23,31 +24,21 @@ const typeDefs = gql`
   }
 `;
 
-// const typeDefs1 = gql`
-//   type ToDo {
-//     id: String!
-//     text: String!
-//     completed: Boolean!
-//   }
-
-//   type AllToDos {
-
-//   }
-// `;
-
-
-
 let books = [
   {
+    id : 0,
     title: 'The Awakening',
     author: 'Kate Chopin',
   },
   {
+    id : 1,
     title: 'City of Glass',
     author: 'Paul Auster',
   },
 ];
 
+
+let nextId = 2;
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
@@ -57,6 +48,7 @@ const resolvers = {
   Mutation : {
     addBook : (parent, args, context, info) => {
       let newBook = {
+        id: nextId++,
         title: args.title,
         author: args.author
       }
