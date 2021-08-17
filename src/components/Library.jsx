@@ -1,6 +1,5 @@
-import gql from "graphql-tag";
 
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery , gql} from "@apollo/client";
 
 const ALL_BOOKS = gql`
 	query ALL_BOOKS {
@@ -22,13 +21,16 @@ function Library() {
 			<ul>
 				{books.data.books.map(({ title, author }) => {
 					return (
-						<li key = {new Date()}>
+						<li >
 							<h3>{title}</h3>
 							<p>Written by - {author}</p>
 						</li>
 					);
 				})}
 			</ul>
+			{/* <div>
+                <pre>{books.data && JSON.stringify(books.data, null, 2)}</pre>
+            </div> */}
 		</div>
 	);
 }
