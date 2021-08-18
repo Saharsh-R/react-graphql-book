@@ -1,5 +1,6 @@
+On refresh also, data remains stored.
 Shows usage of useMutation, update cache readQuery, optimisticResponse, onQueryUpdated
-
+![](2021-08-18-06-29-49.png)
 ```
 npm run server
 ```
@@ -61,7 +62,13 @@ You can set this to anything. You can set this to
 - `Title -> aspdfalksdjfasdfasdf` 
 - `Title -> input.title` (Preferred to make your app feel super fast)
 
+# VERY IMPORTANT
+Here I made a change in the schema but I forgot to update this optimistic response with the pagesRead property. HERE, it did not load because the properties were different. Because optimistic response did not have pagesRead property, it did not show it during the time real response was received from the server.
+![](2021-08-18-05-22-36.png)
 
+# Doubt
+![](2021-08-18-06-26-59.png)
+How is this working here?
 
 ## Some useful links
 - [CRUD with graphql](https://codesource.io/build-a-crud-application-with-react-and-apollo-graphql/)

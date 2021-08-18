@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { ALL_BOOKS } from "./Library";
+import { BOOK_DETAILS } from "./gql";
+
 
 const CREATE_BOOK = gql`
 	mutation CREATE_BOOK($author: String!, $title: String!) {
 		addBook(author: $author, title: $title) {
-            id
-			title
-			author
+            ...BookDetails
 		}
 	}
+    ${BOOK_DETAILS}
 `;
 
 function AddBook() {
@@ -46,9 +47,10 @@ function AddBook() {
                 __typename: 'Mutation',
                 addBook : {
                     id: 234,
-                    title : 'OOOOOZOCOOFSOWFOOOWOOOOOOFOOSFOOFS',
-                    author : 'VSSSCOOOOODEEEEEEEE',
-                    __typename : 'Book'
+                    title : 'OOOOOZOCOOFSOWFOOOWOOOOOOFOOSFOOFS', //ideally should be {title}
+                    author : 'VSSSCOOOOODEEEEEEEE', //ideally should be {author}
+                    __typename : 'Book',
+                    pagesRead : 245,
                 }
                 
             }

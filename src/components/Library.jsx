@@ -1,14 +1,16 @@
 
 import { useQuery , gql} from "@apollo/client";
+import { BOOK_DETAILS } from "./gql";
+import Book from "./individualBook";
+
 
 export const ALL_BOOKS = gql`
 	query ALL_BOOKS {
 		books {
-			id
-			title
-			author
+			...BookDetails
 		}
 	}
+	${BOOK_DETAILS}
 `;
 
 function Library() {
@@ -20,14 +22,10 @@ function Library() {
 	return (
 		<div>
 			<ul>
-				{books.data.books.map(({ title, author }) => {
-					return (
-						<li >
-							<h3>{title}</h3>
-							<p>Written by - {author}</p>
-						</li>
-					);
+				{books.data.books.map( bookData => {
+					return <Book key = {bookData.id}  data = {bookData}/>
 				})}
+				
 			</ul>
 			{/* <div>
                 <pre>{books.data && JSON.stringify(books.data, null, 2)}</pre>
