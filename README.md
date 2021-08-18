@@ -1,6 +1,6 @@
 On refresh also, data remains stored.
 Shows usage of useMutation, update cache readQuery, optimisticResponse, onQueryUpdated
-![](2021-08-18-06-29-49.png)
+![](2021-08-18-06-36-01.png)
 ```
 npm run server
 ```
