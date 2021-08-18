@@ -76,6 +76,10 @@ How is this working here?
 ![](2021-08-18-06-47-37.png)
 Why are there two?
 
+# Read
+- [CACHE update with fragments](https://www.apollographql.com/docs/react/caching/cache-interaction/)
+Updating fragments etc etc.
+
 
 ## Some useful links
 - [CRUD with graphql](https://codesource.io/build-a-crud-application-with-react-and-apollo-graphql/)

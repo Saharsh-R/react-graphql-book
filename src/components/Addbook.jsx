@@ -25,12 +25,14 @@ function AddBook() {
 
 	const [createBook, { data, error, loading }] = useMutation(CREATE_BOOK, {
 		update(cache, { data: { addBook } }) {
+            
 			const { books } = cache.readQuery({ query: ALL_BOOKS });
 			cache.writeQuery({
 				query: ALL_BOOKS,
 				data: { books: [addBook, ...books] },
 			});
 		},
+        
 		// onQueryUpdated(z) {
 		// 	// Define any custom logic for determining whether to refetch
 		// 	if (true) {
@@ -50,7 +52,7 @@ function AddBook() {
                     title : 'OOOOOZOCOOFSOWFOOOWOOOOOOFOOSFOOFS', //ideally should be {title}
                     author : 'VSSSCOOOOODEEEEEEEE', //ideally should be {author}
                     __typename : 'Book',
-                    pagesRead : 245,
+                    pagesRead : 245, //all fields required here to make this work
                 }
                 
             }
