@@ -71,6 +71,12 @@ Here I made a change in the schema but I forgot to update this optimistic respon
 How is this working here?
 
 
+-----
+
+![](2021-08-18-06-47-37.png)
+Why are there two?
+
+
 ## Some useful links
 - [CRUD with graphql](https://codesource.io/build-a-crud-application-with-react-and-apollo-graphql/)
 - [apollo client docs](https://www.apollographql.com/docs/react/api/react/hooks/#usemutation)
